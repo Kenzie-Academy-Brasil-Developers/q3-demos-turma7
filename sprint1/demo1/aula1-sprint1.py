@@ -1,4 +1,4 @@
-# #!/usr/bin/python3
+#!/usr/bin/python3
 # 
 # # Variáveis são chamadas de name: texto
 # texto = "kenzie"
