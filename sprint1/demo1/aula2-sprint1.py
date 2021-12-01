@@ -43,9 +43,9 @@ f.clear()
 print(f)
 
 # Funções embutidas de cada tipo: acesse pelo objeto
-list.clear()
-set.add()
-str.capitalize()
+# list.clear()
+# set.add()
+# str.capitalize()
 
 # FUNÇÃO COM ANOTAÇÃO PONTO
 
