@@ -4,6 +4,8 @@ os.system("clear") # WORKAROUND
 for i in range(2):
     print("")
 
+### CÓDIGO ACIMA NÃO ESTÁ SENDO USADO DIRETAMENTE 
+
 import sys
 import time
 from time import sleep
@@ -57,6 +59,6 @@ str.capitalize()
 
 
 
-### CÓDIGO ABAIXO É 
+### CÓDIGO ABAIXO NÃO ESTÁ SENDO USADO DIRETAMENTE 
 for i in range(2):
     print("")
