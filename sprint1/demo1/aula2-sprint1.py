@@ -19,7 +19,7 @@ from time import sleep
 
 # Inicialização:
 
-lista = list([3, 6, 10, "", 1.2])  # Homogênia, a = []
+lista = list([3, 6, 10, "", 1.2])  # Homogênea, a = []
 conjuntos = set({1, 5, 9, "", 3.141592}), # f = set(), ELIMINAR DUPLICATAS
 tupla = ()
 dicionario = dict({"chave": 923875, "dog": "cachorro"})
