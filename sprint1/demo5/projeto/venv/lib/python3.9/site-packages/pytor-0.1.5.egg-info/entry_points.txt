@@ -1,0 +1,3 @@
+[console_scripts]
+pytor = pytor.__main__:main
+
