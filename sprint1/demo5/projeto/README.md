@@ -10,7 +10,7 @@
 -- Nos mostra local do executável em binário no linux
 
 * COMANDO TREE
-Organograma dos diretórios em unix/linux
+-- Organograma dos diretórios em unix/linux
 
 * COMETENDO ERROS EM PYTHON: VERSÕES, PYTHON2.7 & PYTHON 3.x
 -- 2.7 - LTS, long term support
