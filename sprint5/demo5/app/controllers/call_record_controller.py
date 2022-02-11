@@ -48,7 +48,25 @@ def get_records():
 
     page = request.args.get("page", 1, type=int)
     per_page = request.args.get("per_page", 3, type=int)
-    records = base_query.order_by(CallRecord.id).paginate(page, per_page)
+
+    source = request.args.get("source", type=int)
+    destination = request.args.get("destination")
+
+    query_params = dict(request.args)
+    query_params.pop("page", None)
+    query_params.pop("per_page", None)
+
+    # 1. existe source
+    # 2. existe destination
+    # 3. existe tanto source quanto destination
+    # request.args -> ImultableMultiDict
+    # request.args.pop() -> nao consigo por ser imutavel
+    if source or destination:
+        records = base_query.filter_by(**query_params).order_by(CallRecord.id)
+    else:
+        records = base_query.order_by(CallRecord.id)
+
+    records = records.paginate(page, per_page)
 
     return jsonify(records.items), HTTPStatus.OK
 
@@ -66,3 +84,40 @@ def create_record():
 
     # return record.serializer(), HTTPStatus.CREATED
     return jsonify(record), HTTPStatus.CREATED
+
+
+def update_record(record_id: int):
+    data = request.get_json()
+    session: Session = db.session
+    base_query = session.query(CallRecord)
+
+    record = base_query.get(record_id)
+
+    if not record:
+        return {"error": "id not found"}, HTTPStatus.NOT_FOUND
+
+    for key, value in data.items():
+        setattr(record, key, value)
+
+    print(record.chave_random)
+
+    session.add(record)
+    session.commit()
+
+    return jsonify(record), HTTPStatus.OK
+
+
+def delete_record(record_id: int):
+    session: Session = db.session
+    base_query = session.query(CallRecord)
+
+    record = base_query.get(record_id)
+
+    if not record:
+        return {"error": "id not found"}, HTTPStatus.NOT_FOUND
+
+    session.delete(record)
+    session.commit()
+
+    # return "", HTTPStatus.NO_CONTENT
+    return jsonify(record), HTTPStatus.OK
