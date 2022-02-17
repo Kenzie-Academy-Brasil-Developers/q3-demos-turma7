@@ -1,0 +1,6 @@
+class InvalidEmail(Exception):
+    ...
+
+
+class InvalidBirthDateFormat(Exception):
+    ...
