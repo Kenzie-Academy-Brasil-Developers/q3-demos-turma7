@@ -1,0 +1,4 @@
+.env
+/venv
+**/__venv__
+.vscode
